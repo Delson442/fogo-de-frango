@@ -1,239 +1,58 @@
+
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fogo de Frango Camama | O Melhor Grelhado de Luanda</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        charcoal: '#121212',
-                        burntOrange: '#CC5500',
-                        warmGray: '#2A2A2A',
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        html { scroll-behavior: smooth; }
-        .hero-overlay { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)); }
-        .menu-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
-        .sticky-whatsapp { animation: pulse 2s infinite; }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fogo de Frango Camama | O Melhor Grelhado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --laranja: #ff4500; --preto: #1a1a1a; --branco: #ffffff; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; color: var(--preto); }
+        header { background: var(--preto); color: var(--laranja); padding: 20px; text-align: center; border-bottom: 4px solid var(--laranja); }
+
+        .container { padding: 20px; max-width: 800px; margin: auto; }
+
+        /* Menu Digital */
+        .menu-card { background: var(--branco); padding: 20px; border-radius: 10px; shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .item-menu { display: flex; justify-content: space-between; border-bottom: 1px dashed #ccc; padding: 10px 0; }
+        .preco { color: var(--laranja); font-weight: bold; }
+
+        /* Botão Localização */
+        .btn-maps { display: block; background: #4285F4; color: white; text-align: center; padding: 15px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 20px; }
+
+        /* Botão WhatsApp Flutuante */
+        .whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); text-decoration: none; z-index: 1000; }
+    </style>
 </head>
-<body class="bg-charcoal text-white font-sans">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-charcoal/90 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-serif font-black tracking-tighter text-burntOrange">
-                FOGO DE FRANGO <span class="text-white text-sm block tracking-widest font-sans font-light">CAMAMA</span>
-            </div>
-            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-semibold">
-                <a href="#inicio" class="hover:text-burntOrange transition">Início</a>
-                <a href="#menu" class="hover:text-burntOrange transition">Menu</a>
-                <a href="#sobre" class="hover:text-burntOrange transition">Sobre Nós</a>
-                <a href="#contacto" class="hover:text-burntOrange transition">Contacto</a>
-            </div>
-            <button class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
-        </div>
-    </nav>
+<header>
+    <h1>FOGO DE FRANGO</h1>
+    <p>O Sabor Autêntico da Camama</p>
+</header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-                 class="w-full h-full object-cover" alt="Grilled Chicken">
-            <div class="absolute inset-0 hero-overlay"></div>
-        </div>
-        
-        <div class="relative z-10 text-center px-4 max-w-4xl">
-            <span class="text-burntOrange uppercase tracking-[0.3em] font-semibold mb-4 block">A Arte do Churrasco Angolano</span>
-            <h1 class="text-5xl md:text-8xl font-serif font-black mb-6 leading-tight">
-                O Melhor Grelhado <br> de <span class="italic text-burntOrange">Luanda</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light">
-                Do carvão à mesa: experimente o frango mais suculento da Camama, temperado com tradição e paixão.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#menu" class="bg-burntOrange hover:bg-orange-700 text-white px-10 py-4 rounded-full font-bold transition duration-300 uppercase tracking-wider">
-                    Ver Menu Digital
-                </a>
-                <a href="https://wa.me/244943393801" class="border border-white hover:bg-white hover:text-charcoal text-white px-10 py-4 rounded-full font-bold transition duration-300 uppercase tracking-wider">
-                    Fazer Pedido
-                </a>
-            </div>
-        </div>
-    </section>
+<div class="container">
+    <div class="menu-card">
+        <h2>menu do dia</h2>
+        <div class="item-menu"><span>Frango Inteiro Grelhado</span> <span class="preco">5.500 Kz</span></div>
+        <div class="item-menu"><span>Meio Frango + Batata</span> <span class="preco">3.200 Kz</span></div>
+        <div class="item-menu"><span>Dose de Mandioca Frita</span> <span class="preco">1.000 Kz</span></div>
+        <div class="item-menu"><span>Cuca Gelada (Lata)</span> <span class="preco">500 Kz</span></div>
+    </div>
 
-    <!-- Menu Section -->
-    <section id="menu" class="py-24 px-6 bg-warmGray">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4">Nosso Menu</h2>
-                <div class="w-24 h-1 bg-burntOrange mx-auto"></div>
-            </div>
+    <div class="menu-card">
+        <h2>Onde Estamos?</h2>
+        <p>Estamos localizados na estrada principal da Camama, junto ao candeeiro 4.</p>
+        <a href="https://www.google.com/maps/search/Camama+Luanda+Angola" target="_blank" class="btn-maps">
+            <i class="fas fa-map-marker-alt"></i> VER NO GOOGLE MAPS
+        </a>
+    </div>
+</div>
 
-            <div class="grid md:grid-cols-3 gap-12">
-                <!-- Grelhados -->
-                <div>
-                    <h3 class="text-burntOrange text-2xl font-serif mb-8 border-b border-orange-900/30 pb-2">
-                        <i class="fas fa-fire-alt mr-2"></i> Grelhados
-                    </h3>
-                    <div class="space-y-8">
-                        <div class="flex justify-between items-start group">
-                            <div>
-                                <h4 class="font-bold text-lg group-hover:text-burntOrange transition">Frango Inteiro (No Carvão)</h4>
-                                <p class="text-gray-400 text-sm italic">Acompanha molho piripiri artesanal</p>
-                            </div>
-                            <span class="font-bold text-burntOrange">7.500 Kz</span>
-                        </div>
-                        <div class="flex justify-between items-start group">
-                            <div>
-                                <h4 class="font-bold text-lg group-hover:text-burntOrange transition">Meio Frango</h4>
-                                <p class="text-gray-400 text-sm italic">Grelhado na hora</p>
-                            </div>
-                            <span class="font-bold text-burntOrange">4.000 Kz</span>
-                        </div>
-                        <div class="flex justify-between items-start group">
-                            <div>
-                                <h4 class="font-bold text-lg group-hover:text-burntOrange transition">Picanha Premium (300g)</h4>
-                                <p class="text-gray-400 text-sm italic">Corte nobre com sal grosso</p>
-                            </div>
-                            <span class="font-bold text-burntOrange">12.000 Kz</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Acompanhamentos -->
-                <div>
-                    <h3 class="text-burntOrange text-2xl font-serif mb-8 border-b border-orange-900/30 pb-2">
-                        <i class="fas fa-utensils mr-2"></i> Acompanhamentos
-                    </h3>
-                    <div class="space-y-8">
-                        <div class="flex justify-between items-start group">
-                            <h4 class="font-bold text-lg group-hover:text-burntOrange transition">Batata Frita Caseira</h4>
-                            <span class="font-bold text-burntOrange">1.500 Kz</span>
-                        </div>
-                        <div class="flex justify-between items-start group">
-                            <h4 class="font-bold text-lg group-hover:text-burntOrange transition">Arroz Soltinho</h4>
-                            <span class="font-bold text-burntOrange">1.200 Kz</span>
-                        </div>
-                        <div class="flex justify-between items-start group">
-                            <h4 class="font-bold text-lg group-hover:text-burntOrange transition">Salada Mista</h4>
-                            <span class="font-bold text-burntOrange">2.000 Kz</span>
-                        </div>
-                        <div class="flex justify-between items-start group">
-                            <h4 class="font-bold text-lg group-hover:text-burntOrange transition">Feijão Preto</h4>
-                            <span class="font-bold text-burntOrange">1.800 Kz</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bebidas -->
-                <div>
-                    <h3 class="text-burntOrange text-2xl font-serif mb-8 border-b border-orange-900/30 pb-2">
-                        <i class="fas fa-glass-cheers mr-2"></i> Bebidas
-                    </h3>
-                    <div class="space-y-8">
-                        <div class="flex justify-between items-start group">
-                            <h4 class="font-bold text-lg group-hover:text-burntOrange transition">Cerveja Cuca (Lata)</h4>
-                            <span class="font-bold text-burntOrange">800 Kz</span>
-                        </div>
-                        <div class="flex justify-between items-start group">
-                            <h4 class="font-bold text-lg group-hover:text-burntOrange transition">Refrigerante 330ml</h4>
-                            <span class="font-bold text-burntOrange">1.000 Kz</span>
-                        </div>
-                        <div class="flex justify-between items-start group">
-                            <h4 class="font-bold text-lg group-hover:text-burntOrange transition">Vinho da Casa (Tinto)</h4>
-                            <span class="font-bold text-burntOrange">9.500 Kz</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="sobre" class="py-24 px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div class="md:w-1/2 relative">
-                <div class="absolute -top-4 -left-4 w-64 h-64 bg-burntOrange/20 rounded-full blur-3xl"></div>
-                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Grill Master" class="rounded-lg shadow-2xl relative z-10 border border-white/10">
-            </div>
-            <div class="md:w-1/2">
-                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6">Tradição no <span class="text-burntOrange">Carvão</span></h2>
-                <p class="text-gray-400 text-lg mb-6 leading-relaxed">
-                    No Fogo de Frango Camama, não apenas cozinhamos; celebramos o ritual do fogo. Nossa tradição remonta ao segredo dos temperos caseiros e à paciência do grelhado lento em brasa forte.
-                </p>
-                <p class="text-gray-400 text-lg mb-8 leading-relaxed">
-                    Localizados no coração da Camama, somos o ponto de encontro para quem valoriza o sabor autêntico, a carne suculenta e momentos inesquecíveis com a família e amigos.
-                </p>
-                <div class="grid grid-cols-2 gap-6">
-                    <div>
-                        <span class="text-burntOrange font-bold text-3xl block">100%</span>
-                        <span class="text-sm uppercase tracking-widest">Carvão Vegetal</span>
-                    </div>
-                    <div>
-                        <span class="text-burntOrange font-bold text-3xl block">Daily</span>
-                        <span class="text-sm uppercase tracking-widest">Produtos Frescos</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer / Contact -->
-    <footer id="contacto" class="bg-black py-16 px-6 border-t border-white/5">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 text-center md:text-left">
-            <div>
-                <h4 class="font-serif text-2xl mb-6">Fogo de Frango</h4>
-                <p class="text-gray-500 italic">O verdadeiro sabor da brasa na Camama.</p>
-                <div class="mt-6 flex justify-center md:justify-start space-x-4">
-                    <a href="#" class="w-10 h-10 rounded-full bg-warmGray flex items-center justify-center hover:bg-burntOrange transition"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-warmGray flex items-center justify-center hover:bg-burntOrange transition"><i class="fab fa-facebook-f"></i></a>
-                </div>
-            </div>
-            <div>
-                <h4 class="font-bold uppercase tracking-widest text-sm mb-6 text-burntOrange">Localização e Horas</h4>
-                <p class="text-gray-400 mb-2">Estrada Principal da Camama, Luanda</p>
-                <p class="text-gray-400 italic">Terça - Domingo: 11:00 – 22:00</p>
-            </div>
-            <div>
-                <h4 class="font-bold uppercase tracking-widest text-sm mb-6 text-burntOrange">Reservas</h4>
-                <p class="text-gray-400 mb-2">Telemóvel: +244 943 393 801</p>
-                <p class="text-gray-400">Email: info@fogodefrango.ao</p>
-            </div>
-        </div>
-        <div class="text-center mt-16 pt-8 border-t border-white/5 text-gray-600 text-xs">
-            &copy; 2024 Fogo de Frango Camama. Todos os direitos reservados.
-        </div>
-    </footer>
-
-    <!-- Sticky WhatsApp Button -->
-    <a href="https://wa.me/244943393801?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20no%20Fogo%20de%20Frango%20Camama." 
-       target="_blank"
-       class="sticky-whatsapp fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center space-x-2 px-6">
-        <i class="fab fa-whatsapp text-2xl"></i>
-        <span class="font-bold hidden md:inline">Pedir Agora</span>
-    </a>
+<a href="https://wa.me/244946363805?text=Olá!+Gostaria+de+fazer+um+pedido+para+o+Fogo+de+Frango+Camama" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 </body>
 </html>
